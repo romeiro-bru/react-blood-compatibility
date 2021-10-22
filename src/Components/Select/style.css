@@ -1,0 +1,22 @@
+.donor-options, .receptor-options {
+  margin-bottom: 1rem;
+}
+
+section select {
+  margin: 0 0.6rem;
+}
+
+select {
+  border: none;
+  border-radius: 5rem;
+  background-color: #d6b4b2;
+  padding: 0.2rem 0.3rem;
+  color: #d4451d;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+option {
+  font-weight: bold;
+}

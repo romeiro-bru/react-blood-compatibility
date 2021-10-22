@@ -1,9 +1,11 @@
 import './App.css';
+import { Select } from './Components/Select/Select';
 
 function App() {
   return (
     <div className="App">
       <h1>Blood type</h1>
+      <Select />
     </div>
   );
 }

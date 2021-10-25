@@ -9,6 +9,17 @@ export function Select() {
   const [rhDonor, setRhDonor] = useState('+')
   const [rhReceptor, setRhReceptor] = useState('+')
 
+  const bloodTypes = {
+    donor: {
+      rh: "",
+      bloodType: ""
+    },
+    receptor: {
+      rh: "",
+      bloodType: ""
+    }
+  }
+
   const handleSelectDonor = (e) => {
     setDonorType(e.target.value)
   }
@@ -19,20 +30,32 @@ export function Select() {
     setRhDonor(e.target.value)
   }
   const handleRhReceptor = (e) => {
+    console.log(e.target.name, e.target.value)
     setRhReceptor(e.target.value)
   }
 
+  /*
+  function isCompatible(object: obj): boolean{
+    ** MAGIA ***
+  }
+
+  function message(boo: booleam): string{
+    boo ? "Sucesso" : "Erro"
+  }
+  */
+
+
   const handleResult = () => {
     if (rhDonor === "+" && rhReceptor === "-") {
-      setResult(`${donorType}${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
-    } else if (rhDonor === "+" && rhReceptor === "+" || rhDonor === "-" && rhReceptor === "-" || rhDonor === "-" && rhReceptor === "+") {
+      return setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
+    } else {
       if (donorType === "O") {
         if (receptorType === "O" || receptorType === "A" || receptorType === "B" || receptorType === "AB") {
-          setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
         }
       } else if (donorType === "A") {
         if (receptorType === "A" || receptorType === "AB") {
-          setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
         } else {
           setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
         }
@@ -49,8 +72,6 @@ export function Select() {
           setResult(`O tipo AB${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
         }
       }
-    } else {
-      setResult("Oops")
     }
   }
 

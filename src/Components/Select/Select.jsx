@@ -54,10 +54,7 @@ export function Select() {
 
   function isCompatible(e) {
     e.target.name === "rh-donor" ? setRhDonor(e.target.value) : setRhRecipient(e.target.value)
-
-    return (e.target.name === "rh-recipient" && e.target.value === "+")
-      && (e.target.name === "rh-donor" && e.target.value === "-")
-    // return (rhDonor === "+" && rhRecipient === "-")
+    return (rhDonor === "+" && rhRecipient === "-")
   }
 
   // function message() {

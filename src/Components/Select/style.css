@@ -7,7 +7,7 @@ form select {
 }
 
 .donor-options label {
-  margin-left: 0.3rem;
+  margin-left: 0.5rem;
 }
 
 select {
@@ -23,4 +23,12 @@ select {
 
 option {
   font-weight: bold;
+}
+
+.result {
+  display: inline-grid;
+}
+
+.result img {
+  width: 13rem;
 }

@@ -1,9 +1,9 @@
-.donor-options, .receptor-options {
-  margin-bottom: 1rem;
+form {
+  margin: 2rem 0;
 }
 
-section select {
-  margin: 0 0.6rem;
+form select {
+  margin: 0.3rem 0.6rem;
 }
 
 select {

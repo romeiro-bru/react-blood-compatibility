@@ -2,19 +2,26 @@ import { useState } from "react";
 import './style.css';
 import fruitDrop from '../../assets/images/fruit-drop.png';
 
+const bloodType = [
+  { type: "O" },
+  { type: "A" },
+  { type: "B" },
+  { type: "AB" }
+]
+
 export function Select() {
   const [result, setResult] = useState("")
   const [donorType, setDonorType] = useState('O')
-  const [receptorType, setReceptorType] = useState('O')
+  const [recipientType, setRecipientType] = useState('O')
   const [rhDonor, setRhDonor] = useState('+')
-  const [rhReceptor, setRhReceptor] = useState('+')
+  const [rhRecipient, setRhRecipient] = useState('+')
 
   const bloodTypes = {
     donor: {
       rh: "",
       bloodType: ""
     },
-    receptor: {
+    recipient: {
       rh: "",
       bloodType: ""
     }
@@ -23,53 +30,52 @@ export function Select() {
   const handleSelectDonor = (e) => {
     setDonorType(e.target.value)
   }
-  const handleSelectReceptor = (e) => {
-    setReceptorType(e.target.value)
+  const handleSelectRecipient = (e) => {
+    setRecipientType(e.target.value)
   }
   const handleRhDonor = (e) => {
     setRhDonor(e.target.value)
   }
-  const handleRhReceptor = (e) => {
+  const handleRhRecipient = (e) => {
     console.log(e.target.name, e.target.value)
-    setRhReceptor(e.target.value)
+    setRhRecipient(e.target.value)
   }
 
-  /*
-  function isCompatible(object: obj): boolean{
-    ** MAGIA ***
-  }
+  // function isCompatible() {
+  //   (rhDonor === "+" && rhRecipient === "-")
+  // }
 
-  function message(boo: booleam): string{
-    boo ? "Sucesso" : "Erro"
-  }
-  */
+  // function message() {
+  //   boo ? setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`) :
+  //     setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
+  // }
 
 
   const handleResult = () => {
-    if (rhDonor === "+" && rhReceptor === "-") {
-      return setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
+    if (rhDonor === "+" && rhRecipient === "-") {
+      return setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
     } else {
       if (donorType === "O") {
-        if (receptorType === "O" || receptorType === "A" || receptorType === "B" || receptorType === "AB") {
-          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+        if (recipientType === "O" || recipientType === "A" || recipientType === "B" || recipientType === "AB") {
+          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
         }
       } else if (donorType === "A") {
-        if (receptorType === "A" || receptorType === "AB") {
-          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+        if (recipientType === "A" || recipientType === "AB") {
+          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
         } else {
-          setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
+          setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
         }
       } else if (donorType === "B") {
-        if (receptorType === "B" || receptorType === "AB") {
-          setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+        if (recipientType === "B" || recipientType === "AB") {
+          setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
         } else {
-          setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
+          setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
         }
       } else if (donorType === "AB") {
-        if (receptorType === "AB") {
-          setResult(`O tipo AB${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+        if (recipientType === "AB") {
+          setResult(`O tipo AB${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
         } else {
-          setResult(`O tipo AB${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
+          setResult(`O tipo AB${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
         }
       }
     }
@@ -79,34 +85,32 @@ export function Select() {
     <main>
       <form>
         <div className="donor-options">
-          <label htmlFor="donor-options">
+          <label>
             Tipo sanguíneo doador
         </label>
           <select value={donorType} onClick={handleResult} onChange={handleSelectDonor} name="donor">
-            <option value="O">O</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="AB">AB</option>
+            {bloodType.map((item, i) => (
+              <option key={i} value={item.type}>{item.type}</option>
+            ))}
           </select>
 
-          <label htmlFor="rh-donor">Rh</label>
+          <label>Rh</label>
           <select value={rhDonor} onClick={handleResult} onChange={handleRhDonor} name="rh-donor">
             <option value="+">+</option>
             <option value="-">-</option>
           </select>
         </div>
 
-        <div className="receptor-options">
-          <label htmlFor="receptor-options">Tipo sanguíneo receptor</label>
-          <select value={receptorType} onClick={handleResult} onChange={handleSelectReceptor} name="receptor">
-            <option value="O">O</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="AB">AB</option>
+        <div className="recipient-options">
+          <label>Tipo sanguíneo receptor</label>
+          <select value={recipientType} onClick={handleResult} onChange={handleSelectRecipient} name="receptor">
+            {bloodType.map((item, i) => (
+              <option key={i} value={item.type}>{item.type}</option>
+            ))}
           </select>
 
-          <label htmlFor="rh-receptor">Rh</label>
-          <select value={rhReceptor} onClick={handleResult} onChange={handleRhReceptor} name="rh-receptor">
+          <label>Rh</label>
+          <select value={rhRecipient} onClick={handleResult} onChange={handleRhRecipient} name="rh-receptor">
             <option value="+">+</option>
             <option value="-">-</option>
           </select>

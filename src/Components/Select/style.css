@@ -6,6 +6,10 @@ form select {
   margin: 0.3rem 0.6rem;
 }
 
+.donor-options label {
+  margin-left: 0.3rem;
+}
+
 select {
   border: none;
   border-radius: 5rem;

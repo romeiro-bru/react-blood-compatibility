@@ -76,8 +76,8 @@ export function Select() {
   }
 
   return (
-    <form>
-      <section>
+    <main>
+      <form>
         <div className="donor-options">
           <label htmlFor="donor-options">
             Tipo sanguíneo doador
@@ -111,11 +111,11 @@ export function Select() {
             <option value="-">-</option>
           </select>
         </div>
-      </section>
+      </form>
 
       <section className="result">
         {result}
       </section>
-    </form>
+    </main>
   )
 }

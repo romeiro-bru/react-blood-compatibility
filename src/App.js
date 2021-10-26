@@ -4,7 +4,7 @@ import { Select } from './Components/Select/Select';
 function App() {
   return (
     <div className="App">
-      <h1>Blood type</h1>
+      <h1>Blood Compatibility</h1>
       <Select />
     </div>
   );

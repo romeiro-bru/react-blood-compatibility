@@ -9,6 +9,16 @@ const Icon = () => {
     </a>
   )
 }
+const Button = () => {
+  return (
+    <p>
+      Quer ser um doador?
+      <a href="https://www.gov.br/saude/pt-br/composicao/saes/sangue" target="_blank" rel="noopener noreferrer">
+        <button>Saiba mais</button>
+      </a>
+    </p>
+  )
+}
 
 function App() {
   return (
@@ -16,6 +26,7 @@ function App() {
       <h1>Blood Compatibility</h1>
       <Select />
       <Icon />
+      <Button />
     </div>
   );
 }

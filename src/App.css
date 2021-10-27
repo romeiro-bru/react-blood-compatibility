@@ -35,7 +35,6 @@ body {
 }
 
 .App img:nth-child(2) {
-  position: absolute;
   width: 2rem;
   margin-left: 0.5rem;
   bottom: 0.2rem;
@@ -52,4 +51,23 @@ body {
 .github:hover {
   opacity: 0.8;
   transition: 1s;
+}
+
+@media (max-width: 600px) {
+  .App p {
+    display: flex;
+    font-size: 0.9rem;
+  }
+  .App button{
+    margin-left: 0.3rem;
+    padding: 0.2rem 1.2rem;
+  }
+  .App img:nth-child(2) {
+    display: none;
+  }
+  .github {
+    width: 2.1rem;
+    bottom: 2rem;
+    right: 1.5rem;
+  }
 }

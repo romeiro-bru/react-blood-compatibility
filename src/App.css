@@ -14,7 +14,7 @@ body {
 .App p {
   position: fixed;
   bottom: 1.5rem;
-  right: 38%;
+  right: 40%;
   margin: 0.2rem 0.5rem;
 }
 
@@ -34,8 +34,15 @@ body {
   transition: 1s;
 }
 
+.App img:nth-child(2) {
+  position: absolute;
+  width: 2rem;
+  margin-left: 0.5rem;
+  bottom: 0.2rem;
+}
+
 .github {
-  width: 2.5rem;
+  width: 2.3rem;
   position: fixed;
   bottom: 1.5rem;
   right: 2rem;

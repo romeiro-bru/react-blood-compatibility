@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useReducer, useEffect } from "react";
 import './style.css';
 import happy from '../../assets/images/happy.png';
 import happy2 from '../../assets/images/happy2.png';
@@ -8,14 +8,15 @@ import sad from '../../assets/images/sad-drop.png';
 import sad2 from '../../assets/images/sad-drop2.png';
 import sad3 from '../../assets/images/sad-drop3.png';
 
-const allBloodTypes = [
-  { type: "O" },
-  { type: "A" },
-  { type: "B" },
-  { type: "AB" }
-]
+const allBloodTypes = [{ type: "O" }, { type: "A" }, { type: "B" }, { type: "AB" }]
 const imgCompatible = [happy, happy2, happy3, happy4]
 const imgNotCompatible = [sad, sad2, sad3]
+
+// const reducer = (state, action) => {
+//   setMessage:
+//   (message) =>
+//     (state) => ({ message: state.message })
+// }
 
 export function Select() {
   const [result, setResult] = useState("")
@@ -24,46 +25,19 @@ export function Select() {
   const [rhDonor, setRhDonor] = useState('+')
   const [rhRecipient, setRhRecipient] = useState('+')
 
+  // const [state, dispatcher] = useReducer({ reducer, message: '' })
+  // console.log(state)
+  // const [state, dispatcher] = useReducer(
+  //   {donor: { rh: "+", bloodType: "O" },
+  //    recipient: { rh: "+", bloodType: "O" }
+  //   }, reducer)
+  // dispatcher.setResult()
+  // state.result
+
   const randCompatibleImg = imgCompatible[Math.floor(Math.random() * imgCompatible.length)];
   const randNotCompatibleImg = imgNotCompatible[Math.floor(Math.random() * imgNotCompatible.length)];
 
-  // const bloodTypes = {
-  //   donor: {
-  //     rh: "+",
-  //     bloodType: "O"
-  //   },
-  //   recipient: {
-  //     rh: "+",
-  //     bloodType: "O"
-  //   }
-  // }
-
-  const handleSelectDonor = (e) => {
-    setDonorType(e.target.value)
-  }
-  const handleSelectRecipient = (e) => {
-    setRecipientType(e.target.value)
-  }
-  // const handleRhDonor = (e) => {
-  //   setRhDonor(e.target.value)
-  // }
-  // const handleRhRecipient = (e) => {
-  //   console.log(e.target.name, e.target.value)
-  //   setRhRecipient(e.target.value)
-  // }
-
-  function isCompatible(e) {
-    e.target.name === "rh-donor" ? setRhDonor(e.target.value) : setRhRecipient(e.target.value)
-    return (rhDonor === "+" && rhRecipient === "-")
-  }
-
-  // function message() {
-  //   boo ? setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`) :
-  //     setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
-  // }
-
-
-  const handleResult = () => {
+  useEffect(() => {
     if (rhDonor === "+" && rhRecipient === "-") {
       return setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
     } else {
@@ -91,7 +65,19 @@ export function Select() {
         }
       }
     }
+  }, [donorType, rhDonor, recipientType, rhRecipient])
+
+  const handleChange = (e) => {
+    if (e.target.name === "rh-donor") { setRhDonor(e.target.value) }
+    if (e.target.name === "rh-recipient") { setRhRecipient(e.target.value) }
+    if (e.target.name === "donor") { setDonorType(e.target.value) }
+    if (e.target.name === "recipient") { setRecipientType(e.target.value) }
   }
+
+  // function message(boo) {
+  //   boo ? setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`) :
+  //     setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
+  // }
 
   return (
     <main>
@@ -100,14 +86,14 @@ export function Select() {
           <label>
             Tipo sanguíneo doador
         </label>
-          <select value={donorType} onClick={handleResult} onChange={handleSelectDonor} name="donor">
+          <select value={donorType} onChange={handleChange} name="donor">
             {allBloodTypes.map((item, i) => (
               <option key={i} value={item.type}>{item.type}</option>
             ))}
           </select>
 
           <label>Rh</label>
-          <select value={rhDonor} onClick={handleResult} onChange={isCompatible} name="rh-donor">
+          <select value={rhDonor} onChange={handleChange} name="rh-donor">
             <option value="+">+</option>
             <option value="-">-</option>
           </select>
@@ -115,14 +101,14 @@ export function Select() {
 
         <div className="recipient-options">
           <label>Tipo sanguíneo receptor</label>
-          <select value={recipientType} onClick={handleResult} onChange={handleSelectRecipient} name="recipient">
+          <select value={recipientType} onChange={handleChange} name="recipient">
             {allBloodTypes.map((item, i) => (
               <option key={i} value={item.type}>{item.type}</option>
             ))}
           </select>
 
           <label>Rh</label>
-          <select value={rhRecipient} onClick={handleResult} onChange={isCompatible} name="rh-recipient">
+          <select value={rhRecipient} onChange={handleChange} name="rh-recipient">
             <option value="+">+</option>
             <option value="-">-</option>
           </select>

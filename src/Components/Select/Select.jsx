@@ -1,121 +1,125 @@
-import { useState } from "react";
+import { useState, useReducer, useEffect } from "react";
 import './style.css';
-import fruitDrop from '../../assets/images/fruit-drop.png';
+import happy from '../../assets/images/happy.png';
+import happy2 from '../../assets/images/happy2.png';
+import happy3 from '../../assets/images/happy3.png';
+import happy4 from '../../assets/images/happy4.png';
+import sad from '../../assets/images/sad-drop.png';
+import sad2 from '../../assets/images/sad-drop2.png';
+import sad3 from '../../assets/images/sad-drop3.png';
+
+const allBloodTypes = [{ type: "O" }, { type: "A" }, { type: "B" }, { type: "AB" }]
+const imgCompatible = [happy, happy2, happy3, happy4]
+const imgNotCompatible = [sad, sad2, sad3]
+
+// const reducer = (state, action) => {
+//   setMessage:
+//   (message) =>
+//     (state) => ({ message: state.message })
+// }
 
 export function Select() {
   const [result, setResult] = useState("")
   const [donorType, setDonorType] = useState('O')
-  const [receptorType, setReceptorType] = useState('O')
+  const [recipientType, setRecipientType] = useState('O')
   const [rhDonor, setRhDonor] = useState('+')
-  const [rhReceptor, setRhReceptor] = useState('+')
+  const [rhRecipient, setRhRecipient] = useState('+')
 
-  const bloodTypes = {
-    donor: {
-      rh: "",
-      bloodType: ""
-    },
-    receptor: {
-      rh: "",
-      bloodType: ""
-    }
-  }
+  // const [state, dispatcher] = useReducer({ reducer, message: '' })
+  // console.log(state)
+  // const [state, dispatcher] = useReducer(
+  //   {donor: { rh: "+", bloodType: "O" },
+  //    recipient: { rh: "+", bloodType: "O" }
+  //   }, reducer)
+  // dispatcher.setResult()
+  // state.result
 
-  const handleSelectDonor = (e) => {
-    setDonorType(e.target.value)
-  }
-  const handleSelectReceptor = (e) => {
-    setReceptorType(e.target.value)
-  }
-  const handleRhDonor = (e) => {
-    setRhDonor(e.target.value)
-  }
-  const handleRhReceptor = (e) => {
-    console.log(e.target.name, e.target.value)
-    setRhReceptor(e.target.value)
-  }
+  const randCompatibleImg = imgCompatible[Math.floor(Math.random() * imgCompatible.length)];
+  const randNotCompatibleImg = imgNotCompatible[Math.floor(Math.random() * imgNotCompatible.length)];
 
-  /*
-  function isCompatible(object: obj): boolean{
-    ** MAGIA ***
-  }
-
-  function message(boo: booleam): string{
-    boo ? "Sucesso" : "Erro"
-  }
-  */
-
-
-  const handleResult = () => {
-    if (rhDonor === "+" && rhReceptor === "-") {
-      return setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
+  useEffect(() => {
+    if (rhDonor === "+" && rhRecipient === "-") {
+      return setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
     } else {
       if (donorType === "O") {
-        if (receptorType === "O" || receptorType === "A" || receptorType === "B" || receptorType === "AB") {
-          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+        if (recipientType === "O" || recipientType === "A" || recipientType === "B" || recipientType === "AB") {
+          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
         }
       } else if (donorType === "A") {
-        if (receptorType === "A" || receptorType === "AB") {
-          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+        if (recipientType === "A" || recipientType === "AB") {
+          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
         } else {
-          setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
+          setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
         }
       } else if (donorType === "B") {
-        if (receptorType === "B" || receptorType === "AB") {
-          setResult(`O tipo ${donorType}${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+        if (recipientType === "B" || recipientType === "AB") {
+          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
         } else {
-          setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
+          return setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
         }
       } else if (donorType === "AB") {
-        if (receptorType === "AB") {
-          setResult(`O tipo AB${rhDonor} pode doar para ${receptorType}${rhReceptor}`)
+        if (recipientType === "AB") {
+          return setResult(`O tipo AB${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
         } else {
-          setResult(`O tipo AB${rhDonor} não pode doar para ${receptorType}${rhReceptor}`)
+          return setResult(`O tipo AB${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
         }
       }
     }
+  }, [donorType, rhDonor, recipientType, rhRecipient])
+
+  const handleChange = (e) => {
+    if (e.target.name === "rh-donor") { setRhDonor(e.target.value) }
+    if (e.target.name === "rh-recipient") { setRhRecipient(e.target.value) }
+    if (e.target.name === "donor") { setDonorType(e.target.value) }
+    if (e.target.name === "recipient") { setRecipientType(e.target.value) }
   }
 
+  // function message(boo) {
+  //   boo ? setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`) :
+  //     setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
+  // }
+
   return (
-    <form>
-      <section>
+    <main>
+      <form>
         <div className="donor-options">
-          <label htmlFor="donor-options">
+          <label>
             Tipo sanguíneo doador
         </label>
-          <select value={donorType} onClick={handleResult} onChange={handleSelectDonor} name="donor">
-            <option value="O">O</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="AB">AB</option>
+          <select value={donorType} onChange={handleChange} name="donor">
+            {allBloodTypes.map((item, i) => (
+              <option key={i} value={item.type}>{item.type}</option>
+            ))}
           </select>
 
-          <label htmlFor="rh-donor">Rh</label>
-          <select value={rhDonor} onClick={handleResult} onChange={handleRhDonor} name="rh-donor">
+          <label>Rh</label>
+          <select value={rhDonor} onChange={handleChange} name="rh-donor">
             <option value="+">+</option>
             <option value="-">-</option>
           </select>
         </div>
 
-        <div className="receptor-options">
-          <label htmlFor="receptor-options">Tipo sanguíneo receptor</label>
-          <select value={receptorType} onClick={handleResult} onChange={handleSelectReceptor} name="receptor">
-            <option value="O">O</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="AB">AB</option>
+        <div className="recipient-options">
+          <label>Tipo sanguíneo receptor</label>
+          <select value={recipientType} onChange={handleChange} name="recipient">
+            {allBloodTypes.map((item, i) => (
+              <option key={i} value={item.type}>{item.type}</option>
+            ))}
           </select>
 
-          <label htmlFor="rh-receptor">Rh</label>
-          <select value={rhReceptor} onClick={handleResult} onChange={handleRhReceptor} name="rh-receptor">
+          <label>Rh</label>
+          <select value={rhRecipient} onChange={handleChange} name="rh-recipient">
             <option value="+">+</option>
             <option value="-">-</option>
           </select>
         </div>
-      </section>
+      </form>
 
       <section className="result">
         {result}
+        <img hidden={true} src={randCompatibleImg} alt="blood-drop" />
+        <img hidden={true} src={randNotCompatibleImg} alt="blood-drop" />
       </section>
-    </form>
+    </main>
   )
 }

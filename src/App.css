@@ -28,3 +28,16 @@ code {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.github {
+  width: 2.5rem;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 2rem;
+  opacity: 0.4;
+}
+
+.github:hover {
+  opacity: 0.8;
+  transition: 1s;
+}

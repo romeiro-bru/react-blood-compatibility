@@ -34,7 +34,7 @@ body {
   transition: 1s;
 }
 
-.App img:nth-child(2) {
+footer img:nth-child(2) {
   width: 2rem;
   margin-left: 0.5rem;
   bottom: 0.2rem;
@@ -62,7 +62,7 @@ body {
     margin-left: 0.3rem;
     padding: 0.2rem 1.2rem;
   }
-  .App img:nth-child(2) {
+  footer img:nth-child(2)  {
     display: none;
   }
   .github {

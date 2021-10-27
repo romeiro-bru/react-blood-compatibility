@@ -11,7 +11,7 @@ const Footer = () => {
         <a href="https://www.gov.br/saude/pt-br/composicao/saes/sangue" target="_blank" rel="noopener noreferrer">
           <button>Saiba mais</button>
         </a>
-        <img src={bloodDonation} alt="blood-donation" />
+        <img className="blood-donation" src={bloodDonation} alt="blood-donation" />
       </p>
       <div>
         <a href="https://github.com/romeiro-bru/typescript-ghibli-movies" target="_blank" rel="noopener noreferrer">

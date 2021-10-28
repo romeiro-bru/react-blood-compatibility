@@ -36,8 +36,8 @@ body {
 
 footer img:nth-child(2) {
   width: 2rem;
+  position: fixed;
   margin-left: 0.5rem;
-  bottom: 0.2rem;
 }
 
 .github {

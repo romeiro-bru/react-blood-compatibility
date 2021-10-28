@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from "react";
+import { useState, useReducer, useEffect, useCallback } from "react";
 import './style.css';
 import happy from '../../assets/images/happy.png';
 import happy2 from '../../assets/images/happy2.png';
@@ -24,6 +24,7 @@ export function Select() {
   const [recipientType, setRecipientType] = useState('O')
   const [rhDonor, setRhDonor] = useState('+')
   const [rhRecipient, setRhRecipient] = useState('+')
+  const [isCompatible, setIsCompatible] = useState(true)
 
   // const [state, dispatcher] = useReducer({ reducer, message: '' })
   // console.log(state)
@@ -34,38 +35,47 @@ export function Select() {
   // dispatcher.setResult()
   // state.result
 
-  const randCompatibleImg = imgCompatible[Math.floor(Math.random() * imgCompatible.length)];
-  const randNotCompatibleImg = imgNotCompatible[Math.floor(Math.random() * imgNotCompatible.length)];
+  const randomImg = () => {
+    return isCompatible === true ? imgCompatible[Math.floor(Math.random() * imgCompatible.length)] :
+      imgNotCompatible[Math.floor(Math.random() * imgNotCompatible.length)]
+  }
+
+  const message = useCallback(() => {
+    return isCompatible === true ? setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`) :
+      setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
+  })
 
   useEffect(() => {
+    message()
     if (rhDonor === "+" && rhRecipient === "-") {
-      return setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
+      setIsCompatible(false)
     } else {
       if (donorType === "O") {
         if (recipientType === "O" || recipientType === "A" || recipientType === "B" || recipientType === "AB") {
-          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
+          return setIsCompatible(true)
         }
       } else if (donorType === "A") {
         if (recipientType === "A" || recipientType === "AB") {
-          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
-        } else {
-          setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
+          return setIsCompatible(true)
+        } else if (recipientType === "O" || recipientType === "B") {
+          return setIsCompatible(false)
         }
       } else if (donorType === "B") {
         if (recipientType === "B" || recipientType === "AB") {
-          return setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
-        } else {
-          return setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
+          return setIsCompatible(true)
+        } else if (recipientType === "O" || recipientType === "A") {
+          return setIsCompatible(false)
         }
       } else if (donorType === "AB") {
         if (recipientType === "AB") {
-          return setResult(`O tipo AB${rhDonor} pode doar para ${recipientType}${rhRecipient}`)
+          return setIsCompatible(true)
         } else {
-          return setResult(`O tipo AB${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
+          return setIsCompatible(false)
         }
       }
     }
-  }, [donorType, rhDonor, recipientType, rhRecipient])
+  }, [donorType, rhDonor, recipientType, rhRecipient, message])
+
 
   const handleChange = (e) => {
     if (e.target.name === "rh-donor") { setRhDonor(e.target.value) }
@@ -73,11 +83,6 @@ export function Select() {
     if (e.target.name === "donor") { setDonorType(e.target.value) }
     if (e.target.name === "recipient") { setRecipientType(e.target.value) }
   }
-
-  // function message(boo) {
-  //   boo ? setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`) :
-  //     setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
-  // }
 
   return (
     <main>
@@ -117,8 +122,7 @@ export function Select() {
 
       <section className="result">
         {result}
-        <img hidden={true} src={randCompatibleImg} alt="blood-drop" />
-        <img hidden={true} src={randNotCompatibleImg} alt="blood-drop" />
+        <img src={randomImg()} alt="blood-drop" />
       </section>
     </main>
   )

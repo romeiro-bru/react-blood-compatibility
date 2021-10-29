@@ -1,5 +1,9 @@
 <h1 align="center">Blood Type - React Version</h1>
 
+> A aplicação permite verificar a compatibilidade entre os tipos sanguíneos selecionados.
+> <br>
+>[Deploy do projeto](https://react-blood-compatibility.netlify.app/)
+
 <p  align="center">
 <img  src="https://media.giphy.com/media/o7pE8mgznYZws/giphy.gif"  height="200" alt="blood">
 </p>
@@ -7,7 +11,9 @@
 ## Funcionalidades :space_invader: 
 * Selecione o tipo sanguíneo do doador 
 * Selecione o tipo sanguíneo do receptor 
-* Verifique a compatibilidade
+* É possível verificar se os tipos selecionados são compatíveis ou não
+* Uma imagem compatível com o resultado irá aparecer 
+* Possui dark mode
 
 ## Tecnologias :mag_right:
 * React :atom:

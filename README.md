@@ -13,7 +13,7 @@
 * Selecione o tipo sanguíneo do receptor 
 * É possível verificar se os tipos selecionados são compatíveis ou não
 * Uma imagem compatível com o resultado irá aparecer 
-* Possui dark mode
+* Possui botão que alterna para dark mode
 
 ## Tecnologias :mag_right:
 * React :atom:

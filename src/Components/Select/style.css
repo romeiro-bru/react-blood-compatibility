@@ -13,9 +13,9 @@ form select {
 select {
   border: none;
   border-radius: 5rem;
-  background-color: #d6b4b2;
+  background-color: var(--primary-color);
   padding: 0.2rem 0.3rem;
-  color: #d4451d;
+  color: var(--secundary-color);
   font-weight: bold;
   cursor: pointer;
   outline: none;

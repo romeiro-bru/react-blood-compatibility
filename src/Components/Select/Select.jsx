@@ -69,7 +69,7 @@ export function Select() {
       } else if (donorType === "AB") {
         if (recipientType === "AB") {
           return setIsCompatible(true)
-        } else {
+        } else if (recipientType === "O" || recipientType === "A" || recipientType === "B") {
           return setIsCompatible(false)
         }
       }

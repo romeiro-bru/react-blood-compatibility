@@ -1,8 +1,17 @@
 import './App.css';
 import { Select } from './Components/Select/Select';
+import { Button } from './Components/Button/Button';
 import github from './assets/images/github.png';
 import bloodDonation from './assets/images/blood-donation.png';
 
+const Header = () => {
+  return (
+    <header>
+      <h1>Blood Compatibility</h1>
+      <Button />
+    </header>
+  )
+}
 const Footer = () => {
   return (
     <footer>
@@ -25,7 +34,7 @@ const Footer = () => {
 function App() {
   return (
     <div className="App">
-      <h1>Blood Compatibility</h1>
+      <Header />
       <Select />
       <Footer />
     </div>

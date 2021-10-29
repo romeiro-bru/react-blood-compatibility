@@ -1,10 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
 
+:root {
+  --bg-color: #fad0c0;
+  --text: #fd7073;
+  --primary-color: #faebd7;
+  --secundary-color: #f82b5e;
+  --shadow: #000000;
+  --opacity: 0.5;
+}
+
+.light-mode {
+  --bg-color: #fad0c0;
+  --primary-color: #faebd7;
+  --secundary-color: #f82b5e;
+  --text: #fd7073;
+  --shadow: rgba(0, 0, 0, 0.31);
+  --opacity: 0.85;
+  transition: all 0.55s linear;
+}
+.dark-mode {
+  --bg-color: #282c34;
+  --primary-color: #e7c4c4;
+  --secundary-color: #f82b5e;
+  --text: #D1D6EE;
+  --opacity: 0.5;
+  transition: all 0.55s linear;
+}
+
 body {
-  background: #282c34;
-  color: lightgray;
+  background: var(--bg-color);
+  color: var(--text);
   margin: 0;
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, 'Ubuntu', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 2rem 0;
 }
 
 .App {
@@ -19,13 +52,13 @@ body {
 }
 
 .App button{
-    background-color: #dab5a7;
+    background-color: var(--primary-color);
     border: 2px solid #f6aeae;
     border-radius: 5rem;
     margin-left: 0.5rem;
     padding: 0.4rem 0.5rem;
     font-weight: bold;
-    color: white;
+    color: var(--secundary-color);
     outline: none;
 }
 
@@ -52,8 +85,25 @@ footer img:nth-child(2) {
   opacity: 0.8;
   transition: 1s;
 }
+@media (max-width: 568px) {
+  label {
+    font-size: 0.8rem;
+  }
+  .App p {
+    position: static;
+    bottom: 0.5rem;
+  }
+  .github {
+    width: 1.8rem;
+    bottom: 0.3rem;
+    right: 0.3rem;
+  }
+}
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .App h1 {
+    font-size: 1.3rem;
+  }
   .App p {
     display: flex;
     font-size: 0.9rem;

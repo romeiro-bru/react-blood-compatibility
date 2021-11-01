@@ -1,4 +1,4 @@
-<h1 align="center">Blood Type - React Version</h1>
+<h1 align="center">Blood Compatibility</h1>
 
 > A aplicação permite verificar a compatibilidade entre os tipos sanguíneos selecionados.
 > <br>
@@ -28,7 +28,7 @@
                            <strong>[Git](https://git-scm.com/downloads)</strong>, 
                            <strong>[Yarn](https://yarnpkg.com/)</strong>.
 <br>
-```git clone https://github.com/romeiro-bru/react-blood-type.git```
+```git clone https://github.com/romeiro-bru/react-blood-compatibility.git```
 
 Instalar dependências
 <br>

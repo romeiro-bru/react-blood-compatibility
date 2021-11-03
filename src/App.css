@@ -60,6 +60,7 @@ header {
     font-weight: bold;
     color: var(--secundary-color);
     outline: none;
+    cursor: pointer;
 }
 
 .App button:hover {

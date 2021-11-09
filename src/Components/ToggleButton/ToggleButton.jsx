@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './style.css';
 
-export function Button() {
+export function ToggleButton() {
   const [theme, setTheme] = useState(true)
 
   const handleToggle = () => {

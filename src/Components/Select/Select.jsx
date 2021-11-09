@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import './style.css';
 import happy from '../../assets/images/happy.png';
 import happy2 from '../../assets/images/happy2.png';
@@ -12,12 +12,6 @@ const allBloodTypes = [{ type: "O" }, { type: "A" }, { type: "B" }, { type: "AB"
 const imgCompatible = [happy, happy2, happy3, happy4]
 const imgNotCompatible = [sad, sad2, sad3]
 
-// const reducer = (state, action) => {
-//   setMessage:
-//   (message) =>
-//     (state) => ({ message: state.message })
-// }
-
 export function Select() {
   const [result, setResult] = useState("")
   const [donorType, setDonorType] = useState('O')
@@ -25,15 +19,6 @@ export function Select() {
   const [rhDonor, setRhDonor] = useState('+')
   const [rhRecipient, setRhRecipient] = useState('+')
   const [isCompatible, setIsCompatible] = useState(true)
-
-  // const [state, dispatcher] = useReducer({ reducer, message: '' })
-  // console.log(state)
-  // const [state, dispatcher] = useReducer(
-  //   {donor: { rh: "+", bloodType: "O" },
-  //    recipient: { rh: "+", bloodType: "O" }
-  //   }, reducer)
-  // dispatcher.setResult()
-  // state.result
 
   const randomImg = () => {
     return isCompatible === true ? imgCompatible[Math.floor(Math.random() * imgCompatible.length)] :

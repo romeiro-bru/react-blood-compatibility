@@ -1,14 +1,14 @@
 import './App.css';
 import { Select } from './Components/Select/Select';
-import { Button } from './Components/Button/Button';
-import github from './assets/images/github.png';
+import { ToggleButton } from './Components/ToggleButton/ToggleButton';
 import bloodDonation from './assets/images/blood-donation.png';
+import github from './assets/images/github.png';
 
 const Header = () => {
   return (
     <header>
       <h1>Blood Compatibility</h1>
-      <Button />
+      <ToggleButton />
     </header>
   )
 }

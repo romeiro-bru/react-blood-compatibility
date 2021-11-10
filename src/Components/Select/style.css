@@ -27,6 +27,7 @@ option {
 
 .result {
   display: inline-grid;
+  font-size: 1.3rem;
 }
 
 .result img {

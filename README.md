@@ -5,7 +5,7 @@
 >[Deploy do projeto](https://react-blood-compatibility.netlify.app/)
 
 <p  align="center">
-<img  src="https://media.giphy.com/media/o7pE8mgznYZws/giphy.gif"  height="200" alt="blood">
+  <img  src="https://user-images.githubusercontent.com/56081906/141172862-e3ca2237-bfc2-4c9b-9fd5-afd0242e7a80.gif"  height="300" alt="blood">
 </p>
 
 ## Funcionalidades :space_invader: 

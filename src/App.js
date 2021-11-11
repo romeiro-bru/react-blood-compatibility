@@ -1,5 +1,5 @@
 import './App.css';
-import { Select } from './Components/Select/Select';
+import { Form } from './Components/Form/Form';
 import { ToggleButton } from './Components/ToggleButton/ToggleButton';
 import bloodDonation from './assets/images/blood-donation.png';
 import github from './assets/images/github.png';
@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Select />
+      <Form />
       <Footer />
     </div>
   );

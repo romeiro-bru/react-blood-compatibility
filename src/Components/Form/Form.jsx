@@ -4,7 +4,7 @@ import './style.css';
 
 const allBloodTypes = [{ type: "O" }, { type: "A" }, { type: "B" }, { type: "AB" }]
 
-export function Select() {
+export function Form() {
   const [donorType, setDonorType] = useState('O')
   const [recipientType, setRecipientType] = useState('O')
   const [rhDonor, setRhDonor] = useState('+')

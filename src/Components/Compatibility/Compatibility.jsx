@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import './style.css';
 
 import happy from '../../assets/images/happy.png';
 import happy2 from '../../assets/images/happy2.png';
@@ -57,7 +58,7 @@ export function Compatibility({ donorType, rhDonor, recipientType, rhRecipient }
 
 
   return (
-    <section className="result">
+    <section className="compatibility">
       {result}
       <img src={randomImg()} alt="blood-drop" />
     </section>

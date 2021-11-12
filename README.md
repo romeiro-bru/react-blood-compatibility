@@ -9,8 +9,8 @@
 </p>
 
 ## Funcionalidades :space_invader: 
-* Selecione o tipo sanguíneo do doador 
-* Selecione o tipo sanguíneo do receptor 
+* Selecione o tipo sanguíneo e fator rh do doador 
+* Selecione o tipo sanguíneo e fator rh do receptor 
 * É possível verificar se os tipos selecionados são compatíveis ou não
 * Uma imagem compatível com o resultado irá aparecer 
 * Possui botão que alterna para dark mode

@@ -5,12 +5,12 @@
 >[Deploy do projeto](https://react-blood-compatibility.netlify.app/)
 
 <p  align="center">
-  <img  src="https://user-images.githubusercontent.com/56081906/141172862-e3ca2237-bfc2-4c9b-9fd5-afd0242e7a80.gif"  height="300" alt="blood">
+  <img  src="https://user-images.githubusercontent.com/56081906/141382444-c2fdcc55-e390-4f35-8bfc-e7f4a7ec0c23.gif"  height="350" alt="blood">
 </p>
 
 ## Funcionalidades :space_invader: 
-* Selecione o tipo sanguíneo do doador 
-* Selecione o tipo sanguíneo do receptor 
+* Selecione o tipo sanguíneo e fator rh do doador 
+* Selecione o tipo sanguíneo e fator rh do receptor 
 * É possível verificar se os tipos selecionados são compatíveis ou não
 * Uma imagem compatível com o resultado irá aparecer 
 * Possui botão que alterna para dark mode

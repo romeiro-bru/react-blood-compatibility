@@ -86,27 +86,17 @@ footer img:nth-child(2) {
   opacity: 0.8;
   transition: 1s;
 }
-@media (max-width: 568px) {
-  label {
-    font-size: 0.8rem;
-  }
-  .App p {
-    position: static;
-    bottom: 0.5rem;
-  }
-  .github {
-    width: 1.8rem;
-    bottom: 0.3rem;
-    right: 0.3rem;
-  }
-}
 
 @media (max-width: 640px) {
   .App h1 {
     font-size: 1.3rem;
   }
+  label {
+    font-size: 0.8rem;
+  }
   .App p {
     display: flex;
+    position: absolute;
     font-size: 0.9rem;
   }
   .App button{

@@ -6,3 +6,9 @@
 .compatibility img {
   width: 19rem;
 }
+
+@media (max-width: 568px) {
+  .compatibility img {
+    width: 17rem;
+  }
+}

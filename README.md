@@ -25,9 +25,6 @@
 * React :atom:
 * CSS :nail_care::sparkles:
 
-## Links
-* [useCallback & useEffect](https://infinitypaul.medium.com/reactjs-useeffect-usecallback-simplified-91e69fb0e7a3)
-
 ## Instalação / Inicialização 👨‍🏭
 
 É necessário ter instalado <strong>[Node.js](https://nodejs.org/en/download/)</strong>, 

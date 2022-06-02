@@ -21,10 +21,6 @@
 * Uma imagem compatível com o resultado irá aparecer 
 * Possui botão que alterna para dark mode
 
-## Tecnologias :mag_right:
-* React :atom:
-* CSS :nail_care::sparkles:
-
 ## Instalação / Inicialização 👨‍🏭
 
 É necessário ter instalado <strong>[Node.js](https://nodejs.org/en/download/)</strong>, 

@@ -23,7 +23,7 @@ const Footer = () => {
         <img className="blood-donation" src={bloodDonation} alt="blood-donation" />
       </p>
       <div>
-        <a href="https://github.com/romeiro-bru/typescript-ghibli-movies" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/romeiro-bru/react-blood-compatibility" target="_blank" rel="noopener noreferrer">
           <img className="github" src={github} alt="icon" />
         </a>
       </div>

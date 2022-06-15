@@ -15,7 +15,7 @@ select {
   border-radius: 5rem;
   background-color: var(--primary-color);
   padding: 0.2rem 0.3rem;
-  color: var(--secundary-color);
+  color: var(--secondary-color);
   font-weight: bold;
   cursor: pointer;
   outline-color: var(--outline);

@@ -1,7 +1,6 @@
 import './App.css';
 import { Form } from './Components/Form/Form';
 import { ToggleButton } from './Components/ToggleButton/ToggleButton';
-import bloodDonation from './assets/images/blood-donation.png';
 import github from './assets/images/github.png';
 
 const Header = () => {
@@ -17,10 +16,11 @@ const Footer = () => {
     <footer>
       <p>
         Quer ser um doador?
-        <a href="https://www.gov.br/saude/pt-br/composicao/saes/sangue" target="_blank" rel="noopener noreferrer">
-          <button>Saiba mais</button>
+        <button>
+          <a href="https://www.gov.br/saude/pt-br/composicao/saes/sangue" target="_blank" rel="noopener noreferrer">
+            Saiba mais
         </a>
-        <img className="blood-donation" src={bloodDonation} alt="blood-donation" />
+        </button>
       </p>
       <div>
         <a href="https://github.com/romeiro-bru/react-blood-compatibility" target="_blank" rel="noopener noreferrer">

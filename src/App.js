@@ -15,11 +15,9 @@ const Footer = () => {
   return (
     <footer className="flex justify-center">
       <div>
-        <span>Quer ser um doador? </span>
-        <a aria-labelledby="doação de sangue" href="https://www.gov.br/saude/pt-br/composicao/saes/sangue" target="_blank" rel="noopener noreferrer">
-          <button id="doação de sangue">
-            Saiba mais
-        </button>
+        <span className="donate-blood">Quer ser um doador? </span>
+        <a href="https://www.gov.br/saude/pt-br/composicao/saes/sangue" target="_blank" rel="noopener noreferrer">
+          Saiba mais
         </a>
       </div>
       <div>

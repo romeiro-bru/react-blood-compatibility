@@ -30,10 +30,10 @@
 }
 
 a {
-  text-decoration: none;
+  color: var(--outline);
 }
 a:visited {
-  color: var(--secondary-color);
+  color: var(--outline);
 }
 
 body {
@@ -68,27 +68,12 @@ header {
   margin: 0.2rem 0.5rem;
 }
 
-.App button{
-    background-color: var(--primary-color);
-    border: 1.5px solid var(--text);
-    border-radius: 5rem;
-    margin-left: 0.5rem;
-    padding: 0.4rem 0.5rem;
-    font-weight: bold;    
-    color: var(--secondary-color);
-    cursor: pointer;
-    outline-color: var(--outline);
+footer a {
+  outline-color: var(--outline);
 }
 
-.App button:hover {
-  opacity: 0.8;
-  transition: 1s;
-}
-
-footer img:nth-child(2) {
-  width: 2rem;
-  position: fixed;
-  margin-left: 0.5rem;
+.donate-blood {
+  margin-right: 0.6rem;
 }
 
 .github {
@@ -118,6 +103,9 @@ footer img:nth-child(2) {
   .App button{
     margin-left: 0.2rem;
     padding: 0.5rem;
+  }
+  .donate-blood {
+    margin-right: 0.3rem;
   }
   .github {
     width: 2.1rem;

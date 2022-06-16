@@ -27,6 +27,7 @@
   border-radius: 50%;
   background: #fafafa;
   box-shadow: 0 1px 3px 0 var(--shadow);
+  outline-color: var(--outline);
 }
 .heart-switch input + svg {
   width: 36px;

@@ -22,34 +22,40 @@ export function Form() {
       <form>
         <div className="donor-options">
           <label>
-            Tipo sanguíneo doador
-        </label>
+            Tipo sanguíneo do doador
           <select value={donorType} onChange={handleChange} name="donor">
-            {allBloodTypes.map((item, i) => (
-              <option key={i} value={item.type}>{item.type}</option>
-            ))}
-          </select>
+              {allBloodTypes.map((item, i) => (
+                <option key={i} value={item.type}>{item.type}</option>
+              ))}
+            </select>
+          </label>
 
-          <label>Rh</label>
+          <label>
+            Rh
           <select value={rhDonor} onChange={handleChange} name="rh-donor">
-            <option value="+">+</option>
-            <option value="-">-</option>
-          </select>
+              <option value="+">+</option>
+              <option value="-">-</option>
+            </select>
+          </label>
         </div>
 
         <div className="recipient-options">
-          <label>Tipo sanguíneo receptor</label>
+          <label>
+            Tipo sanguíneo do receptor
           <select value={recipientType} onChange={handleChange} name="recipient">
-            {allBloodTypes.map((item, i) => (
-              <option key={i} value={item.type}>{item.type}</option>
-            ))}
-          </select>
+              {allBloodTypes.map((item, i) => (
+                <option key={i} value={item.type}>{item.type}</option>
+              ))}
+            </select>
+          </label>
 
-          <label>Rh</label>
+          <label>
+            Rh
           <select value={rhRecipient} onChange={handleChange} name="rh-recipient">
-            <option value="+">+</option>
-            <option value="-">-</option>
-          </select>
+              <option value="+">+</option>
+              <option value="-">-</option>
+            </select>
+          </label>
         </div>
       </form>
 

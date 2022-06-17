@@ -69,6 +69,7 @@ header {
 }
 
 footer a {
+  padding: 0.3rem;
   outline-color: var(--outline);
 }
 

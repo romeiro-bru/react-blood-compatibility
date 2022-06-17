@@ -58,9 +58,9 @@ export function Compatibility({ donorType, rhDonor, recipientType, rhRecipient }
 
 
   return (
-    <section className="compatibility">
+    <main className="compatibility">
       {result}
       <img src={randomImg()} alt="blood-drop" />
-    </section>
+    </main>
   )
 }

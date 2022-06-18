@@ -29,13 +29,6 @@
   transition: all 0.55s linear;
 }
 
-a {
-  color: var(--outline);
-}
-a:visited {
-  color: var(--outline);
-}
-
 body {
   background: var(--bg-color);
   color: var(--text);
@@ -68,9 +61,14 @@ header {
   margin: 0.2rem 0.5rem;
 }
 
-footer a {
+.link-donate {
   padding: 0.3rem;
+  color: var(--outline);
   outline-color: var(--outline);
+}
+
+.link-donate:visited {
+  color:var(--outline);
 }
 
 .donate-blood {
@@ -83,7 +81,6 @@ footer a {
   right: 4rem;
   margin-left: 1rem;
   opacity: 0.4;
-  outline-color: var(--outline);
 }
 
 .github:hover {

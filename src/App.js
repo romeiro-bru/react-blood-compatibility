@@ -21,8 +21,8 @@ const Footer = () => {
         </a>
       </div>
       <div>
-        <a tabIndex="0" href="https://github.com/romeiro-bru/react-blood-compatibility" target="_blank" rel="noopener noreferrer">
-          <img className="github" src={github} alt="github opens in new window" />
+        <a tabIndex="0" href="https://github.com/romeiro-bru/react-blood-compatibility" rel="noopener noreferrer">
+          <img className="github" src={github} alt="github" />
         </a>
       </div>
     </footer>

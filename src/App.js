@@ -22,7 +22,7 @@ const Footer = () => {
       </div>
       <div>
         <a tabIndex="0" href="https://github.com/romeiro-bru/react-blood-compatibility" target="_blank" rel="noopener noreferrer">
-          <img className="github" src={github} aria-hidden="true" alt="github opens in new window" />
+          <img className="github" src={github} alt="github opens in new window" />
         </a>
       </div>
     </footer>

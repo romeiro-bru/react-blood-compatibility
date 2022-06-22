@@ -23,12 +23,12 @@ export function Compatibility({ donorType, rhDonor, recipientType, rhRecipient }
   const message = useCallback(() => {
     return isCompatible === true ? setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`) :
       setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
-  })
+  }, [isCompatible, donorType, rhDonor, recipientType, rhRecipient])
 
   useEffect(() => {
     message()
     if (rhDonor === "+" && rhRecipient === "-") {
-      setIsCompatible(false)
+      return setIsCompatible(false)
     } else {
       if (donorType === "O") {
         if (recipientType === "O" || recipientType === "A" || recipientType === "B" || recipientType === "AB") {
@@ -60,7 +60,7 @@ export function Compatibility({ donorType, rhDonor, recipientType, rhRecipient }
   return (
     <section className="compatibility">
       {result}
-      <img src={randomImg()} alt="blood-drop" />
+      <img src={randomImg()} alt="blood drop" />
     </section>
   )
 }

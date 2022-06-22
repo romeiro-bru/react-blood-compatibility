@@ -1,7 +1,6 @@
 import './App.css';
 import { Form } from './Components/Form/Form';
 import { ToggleButton } from './Components/ToggleButton/ToggleButton';
-import bloodDonation from './assets/images/blood-donation.png';
 import github from './assets/images/github.png';
 
 const Header = () => {
@@ -14,17 +13,16 @@ const Header = () => {
 }
 const Footer = () => {
   return (
-    <footer>
-      <p>
-        Quer ser um doador?
-        <a href="https://www.gov.br/saude/pt-br/composicao/saes/sangue" target="_blank" rel="noopener noreferrer">
-          <button>Saiba mais</button>
-        </a>
-        <img className="blood-donation" src={bloodDonation} alt="blood-donation" />
-      </p>
+    <footer className="flex justify-center">
       <div>
-        <a href="https://github.com/romeiro-bru/react-blood-compatibility" target="_blank" rel="noopener noreferrer">
-          <img className="github" src={github} alt="icon" />
+        <span className="donate-blood">Quer ser um doador? </span>
+        <a aria-label="blood donation opens in new window" className="link-donate" href="https://www.gov.br/saude/pt-br/composicao/saes/sangue" target="_blank" rel="noopener noreferrer">
+          Saiba mais
+        </a>
+      </div>
+      <div>
+        <a tabIndex="0" href="https://github.com/romeiro-bru/react-blood-compatibility" rel="noopener noreferrer">
+          <img className="github" src={github} alt="github" />
         </a>
       </div>
     </footer>

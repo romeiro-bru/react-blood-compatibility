@@ -3,7 +3,7 @@
 :root {
   --bg-color: #fad0c0;
   --primary-color: #faebd7;
-  --secundary-color: #f82b5e;
+  --secondary-color: #f82b5e;
   --text: #fd7073;
   --shadow: #000000;
   --opacity: 0.5;
@@ -12,17 +12,19 @@
 .light-mode {
   --bg-color: #fad0c0;
   --primary-color: #faebd7;
-  --secundary-color: #f82b5e;
+  --secondary-color: #f82b5e;
   --text: #fd7073;
   --shadow: rgba(0, 0, 0, 0.31);
   --opacity: 0.85;
+  --outline: #1c71c4;
   transition: all 0.55s linear;
 }
 .dark-mode {
   --bg-color: #0b1d2b;
   --primary-color: #c4e7df;
-  --secundary-color: #164f86;
+  --secondary-color: #164f86;
   --text: #75eeb2;
+  --outline: #ec2fe5;
   --opacity: 0.5;
   transition: all 0.55s linear;
 }
@@ -40,6 +42,14 @@ header {
   margin: 1rem 0 2rem 0;
 }
 
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.justify-center {
+  justify-content: center;
+}
+
 .App {
   text-align: center;
 }
@@ -51,34 +61,25 @@ header {
   margin: 0.2rem 0.5rem;
 }
 
-.App button{
-    background-color: var(--primary-color);
-    border: 1.5px solid var(--text);
-    border-radius: 5rem;
-    margin-left: 0.5rem;
-    padding: 0.4rem 0.5rem;
-    font-weight: bold;
-    color: var(--secundary-color);
-    outline: none;
-    cursor: pointer;
+.link-donate {
+  padding: 0.3rem;
+  color: var(--outline);
+  outline-color: var(--outline);
 }
 
-.App button:hover {
-  opacity: 0.8;
-  transition: 1s;
+.link-donate:visited {
+  color:var(--outline);
 }
 
-footer img:nth-child(2) {
-  width: 2rem;
-  position: fixed;
-  margin-left: 0.5rem;
+.donate-blood {
+  margin-right: 0.6rem;
 }
 
 .github {
   width: 2.3rem;
-  position: fixed;
-  bottom: 1.5rem;
-  right: 2rem;
+  position: absolute;
+  right: 4rem;
+  margin-left: 1rem;
   opacity: 0.4;
 }
 
@@ -92,23 +93,20 @@ footer img:nth-child(2) {
     font-size: 1.3rem;
   }
   label {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
-  .App p {
-    display: flex;
-    position: absolute;
+  .App span {
     font-size: 0.9rem;
   }
   .App button{
-    margin-left: 0.3rem;
-    padding: 0.2rem 1.2rem;
+    margin-left: 0.2rem;
+    padding: 0.5rem;
   }
-  footer img:nth-child(2)  {
-    display: none;
+  .donate-blood {
+    margin-right: 0.3rem;
   }
   .github {
     width: 2.1rem;
-    bottom: 2rem;
-    right: 1.5rem;
+    right: 1rem;
   }
 }

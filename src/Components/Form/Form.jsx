@@ -5,10 +5,8 @@ import './style.css';
 const allBloodTypes = [{ type: "O" }, { type: "A" }, { type: "B" }, { type: "AB" }]
 
 export function Form() {
-  const [donorType, setDonorType] = useState('O')
-  const [recipientType, setRecipientType] = useState('O')
-  const [rhDonor, setRhDonor] = useState('+')
-  const [rhRecipient, setRhRecipient] = useState('+')
+  const [donor, setDonor] = useState({ type: 'O', rh: '+' })
+  const [recipient, setRecipient] = useState({ type: 'O', rh: '+' })
 
   return (
     <main>
@@ -16,7 +14,7 @@ export function Form() {
         <div className="donor-options">
           <label>
             Tipo sanguíneo do doador
-          <select value={donorType} onChange={(e) => setDonorType(e.target.value)} name="donor">
+          <select value={donor.type} onChange={(e) => setDonor({ ...donor, type: e.target.value })} name="donor">
               {allBloodTypes.map((item, i) => (
                 <option key={i} value={item.type}>{item.type}</option>
               ))}
@@ -25,7 +23,7 @@ export function Form() {
 
           <label>
             Rh
-          <select value={rhDonor} onChange={(e) => setRhDonor(e.target.value)} name="rh-donor">
+          <select value={donor.rh} onChange={(e) => setDonor({ ...donor, rh: e.target.value })} name="rh-donor">
               <option value="+">+</option>
               <option value="-">-</option>
             </select>
@@ -35,7 +33,7 @@ export function Form() {
         <div className="recipient-options">
           <label>
             Tipo sanguíneo do receptor
-          <select value={recipientType} onChange={(e) => setRecipientType(e.target.value)} name="recipient">
+          <select value={recipient.type} onChange={(e) => setRecipient({ ...recipient, type: e.target.value })} name="recipient">
               {allBloodTypes.map((item, i) => (
                 <option key={i} value={item.type}>{item.type}</option>
               ))}
@@ -44,14 +42,14 @@ export function Form() {
 
           <label>
             Rh
-          <select value={rhRecipient} onChange={(e) => setRhRecipient(e.target.value)} name="rh-recipient">
+          <select value={recipient.rh} onChange={(e) => setRecipient({ ...recipient, rh: e.target.value })} name="rh-recipient">
               <option value="+">+</option>
               <option value="-">-</option>
             </select>
           </label>
         </div>
       </form>
-      <Compatibility donorType={donorType} rhDonor={rhDonor} recipientType={recipientType} rhRecipient={rhRecipient} />
+      <Compatibility donor={donor} recipient={recipient} />
     </main>
   )
 }

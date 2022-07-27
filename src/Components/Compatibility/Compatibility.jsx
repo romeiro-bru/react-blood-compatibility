@@ -12,7 +12,7 @@ import sad3 from '../../assets/images/sad-drop3.png';
 const imgCompatible = [happy, happy2, happy3, happy4]
 const imgNotCompatible = [sad, sad2, sad3]
 
-export function Compatibility({ donorType, rhDonor, recipientType, rhRecipient }) {
+export function Compatibility({ donor, recipient }) {
   const [result, setResult] = useState("")
   const [isCompatible, setIsCompatible] = useState(true)
 
@@ -21,40 +21,40 @@ export function Compatibility({ donorType, rhDonor, recipientType, rhRecipient }
       imgNotCompatible[Math.floor(Math.random() * imgNotCompatible.length)]
   }
   const message = useCallback(() => {
-    return isCompatible === true ? setResult(`O tipo ${donorType}${rhDonor} pode doar para ${recipientType}${rhRecipient}`) :
-      setResult(`O tipo ${donorType}${rhDonor} não pode doar para ${recipientType}${rhRecipient}`)
-  }, [isCompatible, donorType, rhDonor, recipientType, rhRecipient])
+    return isCompatible === true ? setResult(`O tipo ${donor.type}${donor.rh} pode doar para ${recipient.type}${recipient.rh}`) :
+      setResult(`O tipo ${donor.type}${donor.rh} não pode doar para ${recipient.type}${recipient.rh}`)
+  }, [isCompatible, donor, recipient])
 
   useEffect(() => {
     message()
-    if (rhDonor === "+" && rhRecipient === "-") {
+    if (donor.rh === "+" && recipient.rh === "-") {
       return setIsCompatible(false)
     } else {
-      if (donorType === "O") {
-        if (recipientType === "O" || recipientType === "A" || recipientType === "B" || recipientType === "AB") {
+      if (donor.type === "O") {
+        if (recipient.type === "O" || recipient.type === "A" || recipient.type === "B" || recipient.type === "AB") {
           return setIsCompatible(true)
         }
-      } else if (donorType === "A") {
-        if (recipientType === "A" || recipientType === "AB") {
+      } else if (donor.type === "A") {
+        if (recipient.type === "A" || recipient.type === "AB") {
           return setIsCompatible(true)
-        } else if (recipientType === "O" || recipientType === "B") {
+        } else if (recipient.type === "O" || recipient.type === "B") {
           return setIsCompatible(false)
         }
-      } else if (donorType === "B") {
-        if (recipientType === "B" || recipientType === "AB") {
+      } else if (donor.type === "B") {
+        if (recipient.type === "B" || recipient.type === "AB") {
           return setIsCompatible(true)
-        } else if (recipientType === "O" || recipientType === "A") {
+        } else if (recipient.type === "O" || recipient.type === "A") {
           return setIsCompatible(false)
         }
-      } else if (donorType === "AB") {
-        if (recipientType === "AB") {
+      } else if (donor.type === "AB") {
+        if (recipient.type === "AB") {
           return setIsCompatible(true)
-        } else if (recipientType === "O" || recipientType === "A" || recipientType === "B") {
+        } else if (recipient.type === "O" || recipient.type === "A" || recipient.type === "B") {
           return setIsCompatible(false)
         }
       }
     }
-  }, [donorType, rhDonor, recipientType, rhRecipient, message])
+  }, [donor, recipient, message])
 
 
   return (
